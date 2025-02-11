@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee{
+  public:
+  string firstname;
+  string secondname;
+  double salary;
+  
+  Employee(string firstname,string secondname,double salary){
+      this->firstname=firstname;
+      this->secondname=secondname;
+      this->salary=salary;
+  }
+  void checksalary(){
+      if(salary<0){
+          salary=0.0;
+      }
+      return;
+  }
+  void setsalary(double pay){
+      salary=pay;
+      checksalary();
+      return;
+  }
+  double getsalary(){
+      return salary;
+  }
+  void rise(){
+      salary=1.10*salary;
+      return;
+  }
+};
+
+int main() {
+    Employee objone("Abdullah","Umer",500000);
+    Employee objtwo("Jennifer","Lopez",900000);
+    cout<<"Before raise"<<endl;
+    cout<<objone.getsalary()<<endl;
+    cout<<objtwo.getsalary()<<endl;
+    objone.rise();
+    objtwo.rise();
+    cout<<"After raise"<<endl;
+    cout<<objone.getsalary()<<endl;
+    cout<<objtwo.getsalary()<<endl;
+    
+    return 0;
+}
