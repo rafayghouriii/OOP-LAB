@@ -1,0 +1,51 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Date{
+public:
+int month;
+int day;
+int year;
+
+Date(int month,int day,int year){
+    this->month=month;
+    this->year=year;
+    this->day=day;
+}
+void setday(int d){
+    day=d;
+    return;
+}
+void getday(){
+    return day;
+}
+void setmonth(int m){
+    month=m;
+    return;
+}
+void getmonth(){
+    return month;
+}
+void setyear(int y){
+    year=y;
+    return;
+}
+void getyear(){
+    return year;
+}
+void displaydate(){
+    cout<<getday()<<"/"<getmonth()<<"/"<<getyear()<<endl;
+    return;
+}
+
+};
+
+int main(){
+    Date obj;
+    obj.setday(4);
+    obj.setmonth(8);
+    obj.setyear(2005);
+    obj.displaydate();
+    return 0;
+}
