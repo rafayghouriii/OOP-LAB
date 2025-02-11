@@ -1,0 +1,36 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class User{
+public:
+int age;
+string name;
+
+User(int age,string name){
+    this->age=age;
+    this->name=name;
+}
+void setname(string str){
+    name=str;
+    return;
+}
+string getname(){
+    return name;
+}
+void setage(int n){
+    age=n;
+    return;
+}
+int getage(){
+    return age;
+}
+
+};
+int main(){
+    User obj;
+    obj.setage(24);
+    obj.setname("Teo");
+    cout<<"My name is"<<obj.getname()<<"My age is"<<obj.getage()<<endl;
+    return 0;
+}
