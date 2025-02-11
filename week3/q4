@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book{
+  public:
+  string name;
+  string ISBN;
+  string author;
+  string publisher;
+  
+  Book(string name,string ISBN,string author,string publisher){
+      this->name=name;
+      this->ISBN=ISBN;
+      this->author=author;
+      this->publisher=publisher;
+  }
+  
+  string getname(){
+      return name;
+  }
+  
+  string getISBN(){
+      return ISBN;
+  }
+  
+  string getauthor(){
+      return author;
+  }
+  
+  string getpublisher(){
+      return publisher;
+  }
+  
+  string getinfo(){
+      return "Name:"+name+"\nISBN:"+ISBN+"\nAuthor:"+author+"\nPublisher:"+publisher;
+  }
+  
+};
+
+int main() {
+    Book books[5] = {
+        Book("The Great Gatsby", "9780743273565", "F. Scott Fitzgerald", "Scribner"),
+        Book("1984", "9780451524935", "George Orwell", "Secker & Warburg"),
+        Book("To Kill a Mockingbird", "9780061120084", "Harper Lee", "J.B. Lippincott & Co."),
+        Book("Moby-Dick", "9781851244422", "Herman Melville", "Richard Bentley"),
+        Book("The Catcher in the Rye", "9780316769488", "J.D. Salinger", "Little, Brown and Company")
+    };
+    
+    for(int i=0;i<5;i++){
+        cout<<books[i].getinfo()<<endl<<endl;
+    }
+    
+    return 0;
+}
