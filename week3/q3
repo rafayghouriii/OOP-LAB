@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Glass{
+  public:
+  int LiquidLevel;
+  
+  Glass(){
+      LiquidLevel=200;
+  }
+  
+  void Refill(){
+      LiquidLevel=200;
+  }
+  
+  void Drink(int mm){
+      LiquidLevel=LiquidLevel-mm;
+      if(LiquidLevel<100){
+          Refill();
+      }
+  }
+};
+
+int main() {
+    Glass myGlass;
+    int amount;
+    string order;
+    
+    while(1){
+        cout<<"Enter a command bro"<<endl;
+        cin>>order;
+        
+        if(order=="quit"){
+            break;
+        }
+        else if(order=="drink"){
+            cout<<"How much do you want to drink homie?"<<endl;
+            cin>>amount;
+            myGlass.Drink(amount);
+            cout<<"Juice/water left"<<myGlass.LiquidLevel<<endl;
+        }
+        else{
+            cout<<"Invalid order broski"<<endl;
+        }
+    }
+    
+    return 0;
+}
