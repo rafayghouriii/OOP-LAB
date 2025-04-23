@@ -1,0 +1,66 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Wallet
+{
+    double balance;
+    public:
+    Wallet(double bal):balance(bal){}
+    void deposit(double bal)
+    {
+        balance+=bal;
+        if(balance>200000)
+        {
+            cout<<"Deposit exceed the limit of the account!"<<endl;
+            balance-=bal;
+        }
+        else
+        {
+            cout<<"Rs."<<bal<<" Deposited Succesfully!"<<endl;
+            cout<<"Balance: "<<balance<<endl<<endl;
+        }
+    }
+    void withdraw(double with)
+    {
+        if(with>balance)
+        {
+            cout<<"Bank account do not have that much cash in it!"<<endl;
+        }
+        else
+        {
+            balance-=with;
+            cout<<"Rs."<<with<<" Withdrawed Succesfully!"<<endl;
+            cout<<"Balance: "<<balance<<endl<<endl;
+        }
+    }
+};
+class User
+{
+    string name;
+    string id;
+    Wallet* w;
+    public:
+    User(string n,string i):name(n),id(i)
+    {
+        double bal;
+        cout<<"Enter the balance of the wallet: ";
+        cin>>bal;
+        w=new Wallet(bal);
+    }
+    string getname(){return name;}
+    string getid(){return id;}
+    void deposit(double dep)
+    {
+        w->deposit(dep);
+    }
+    void withdraw(double with)
+    {
+        w->withdraw(with);
+    }
+};
+int main()
+{
+    User u("Ali Raza","24K-0794");
+    u.deposit(10000);
+    u.withdraw(2000);
+}
