@@ -1,0 +1,35 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Shape
+{
+    public:
+    virtual void getarea()=0;
+};
+class Triangle:public Shape
+{
+    double base,height;
+    public:
+    Triangle(double b,double h):base(b),height(h){}
+    void getarea()
+    {
+        cout<<"Area of triangle: "<<0.5*base*height<<endl;
+    }
+};
+class Rectangle:public Shape
+{
+    double length,height;
+    public:
+    Rectangle(double l,double h):length(l),height(h){}
+    void getarea()
+    {
+        cout<<"Area of rectangle: "<<length*height<<endl;
+    }
+};
+int main()
+{
+    Shape* s1=new Triangle(10,5);
+    Shape* s2=new Rectangle(15,2);
+    s1->getarea();
+    s2->getarea();
+}
