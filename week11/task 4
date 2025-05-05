@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+// Base template class
+template<typename T>
+class Base {
+protected:
+    T a, b;
+
+public:
+    Base(T x, T y) : a(x), b(y) {}
+
+    T multiplyBase() const {
+        return a * b;
+    }
+};
+
+// Derived template class inheriting from Base<T>
+template<typename T>
+class Derived : public Base<T> {
+private:
+    T c, d;
+
+public:
+    Derived(T x, T y, T m, T n) : Base<T>(x, y), c(m), d(n) {}
+
+    T multiplyDerived() const {
+        return c * d;
+    }
+
+    void displayAll() const {
+        cout << "Base multiplication: " << this->multiplyBase() << endl;
+        cout << "Derived multiplication: " << multiplyDerived() << endl;
+    }
+};
+
+// Main function
+int main() {
+    Derived<int> obj(2, 3, 4, 5);
+    obj.displayAll();
+
+    cout << endl;
+
+    Derived<float> obj2(1.5f, 2.0f, 3.5f, 4.0f);
+    obj2.displayAll();
+
+    return 0;
+}
